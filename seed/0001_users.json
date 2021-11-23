@@ -1,0 +1,140 @@
+[
+{
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$w1m8kQqiyypN$k8x7Xkp5fOWr4ImfYySpn/WnKUOJRVN8fLBHJWLJbIs=",
+        "last_login": null,
+        "email": "morshed.dev@gmail.com",
+        "full_name": "Masud Morshed",
+        "phone": "01670397894",
+        "photo": "",
+        "address": "Cumilla",
+        "verify_code": null,
+        "is_verified": true,
+        "updated_at": "2021-08-06T18:04:08.058Z",
+        "created_at": "2021-08-06T18:04:08.058Z",
+        "is_active": true,
+        "is_admin": true,
+        "is_staff": false,
+        "social_id": null,
+        "provider": null,
+        "status": "active"
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+        "password": "Democratic around property past better. Be far weight including. Speak easy measure dog.",
+        "last_login": "1985-08-29T14:05:55Z",
+        "email": "test@test.com",
+        "full_name": "Morshed",
+        "phone": "0111111111",
+        "photo": "population.jpeg",
+        "address": "490 Thompson River Suite 905\nNew Randyborough, IA 38597",
+        "verify_code": "Sister necessary weight yet source indicate. Sense sport word choice thank chair break. Product because recognize almost eat. Statement raise beyond give above increase.",
+        "is_verified": true,
+        "updated_at": "2015-10-01T01:35:55Z",
+        "created_at": "1975-12-19T05:34:33Z",
+        "is_active": true,
+        "is_admin": false,
+        "is_staff": true,
+        "social_id": "Wall new night heavy message relate. Continue law of center enough standard.\nEnter method group think. Huge not realize. Such PM situation affect water project.",
+        "provider": "Perhaps drive probably. Majority old light sound item detail.\nAgo article but history option. Because information could herself.\nPerhaps time scene finish buy among.",
+        "status": "active"
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+        "password": "You major nation something. As foreign cause impact party.\nBack follow finish activity must put.",
+        "last_login": "1981-07-02T10:34:17Z",
+        "email": "erica62@richmond-johnson.net",
+        "full_name": "Test User",
+        "phone": "203.989.7142x519",
+        "photo": "near.bmp",
+        "address": "85159 Mark Street Apt. 323\nLaurieton, NY 03852",
+        "verify_code": "Four four few six positive however. Hair walk election up time. Baby mind woman model resource. Age reveal see cut news only.\nEnvironmental story former inside themselves budget line.",
+        "is_verified": true,
+        "updated_at": "2003-06-13T13:42:29Z",
+        "created_at": "1995-07-25T10:31:32Z",
+        "is_active": true,
+        "is_admin": false,
+        "is_staff": true,
+        "social_id": "Ago suffer ready middle learn east city as.\nHope single begin six source pretty against hour. Heavy cost field during stuff. Friend design try interview room chair establish.",
+        "provider": "Along concern foot hit PM where feeling. Affect statement school adult. Worry late that especially produce throw short.",
+        "status": "active"
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+        "password": "Add hear strategy her that argue.\nTelevision include section letter. Could name food nor mean. Lay notice a scientist alone be.",
+        "last_login": "2001-08-14T19:17:53Z",
+        "email": "dthompson@hotmail.com",
+        "full_name": "Test User2",
+        "phone": "536.725.5384x01186",
+        "photo": "kitchen.js",
+        "address": "657 Thomas Villages Apt. 438\nFostermouth, RI 62493",
+        "verify_code": "South model whom behavior forget. Particularly prove understand generation finish fund city. Culture significant pattern small test buy least.",
+        "is_verified": false,
+        "updated_at": "1978-12-24T00:15:44Z",
+        "created_at": "1984-01-06T07:01:13Z",
+        "is_active": true,
+        "is_admin": true,
+        "is_staff": false,
+        "social_id": "Field public bed what something design. Congress which get stop movie that space same. Before size member sense me. Move person see too establish tough improve.",
+        "provider": "Pay middle market water resource tax. Garden entire decision should. Real tend play born rich.\nElection moment bit sort religious drop maybe. Beyond keep themselves well professional last old.",
+        "status": "active"
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+        "password": "Lot everything author. Cause create different among defense discuss matter.",
+        "last_login": "2018-04-26T00:49:18Z",
+        "email": "wilkinsonstefanie@garcia-ramirez.com",
+        "full_name": "Test User 3",
+        "phone": "(830)727-9879x85409",
+        "photo": "could.jpg",
+        "address": "778 Douglas Isle Suite 716\nNew Sharon, PA 92355",
+        "verify_code": "Career onto information keep prepare. Rock energy reveal world sound simply.\nAgreement career two hold. Quickly reach town clear. Pay once local pay sit.",
+        "is_verified": true,
+        "updated_at": "1996-04-30T03:13:10Z",
+        "created_at": "1994-03-24T05:59:41Z",
+        "is_active": true,
+        "is_admin": true,
+        "is_staff": true,
+        "social_id": "Professor reflect hand society. Course myself box.\nHimself deep beautiful control. Line seem decide shake scientist PM woman. Prove growth whatever hotel spring.",
+        "provider": "She second song base approach. Yet possible table deep why show.\nDeal doctor ball lose. Life middle mean listen cold.",
+        "status": "active"
+    }
+},
+{
+    "model": "accounts.user",
+    "pk": 12,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$rvfPb7Z6XuMH$mRDR6H0VvGzgNNNzLZQWin4zd68hIctcR4DbjYi8D8g=",
+        "last_login": "2021-08-07T07:44:24.682Z",
+        "email": "admin@admin.com",
+        "full_name": "admin",
+        "phone": null,
+        "photo": "",
+        "address": null,
+        "verify_code": null,
+        "is_verified": false,
+        "updated_at": "2021-08-07T07:42:46.733Z",
+        "created_at": "2021-08-07T07:42:46.734Z",
+        "is_active": true,
+        "is_admin": true,
+        "is_staff": true,
+        "social_id": null,
+        "provider": null,
+        "status": "active"
+    }
+}
+]
