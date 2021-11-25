@@ -105,7 +105,6 @@ class SetNewPasswordSerializer(serializers.Serializer):
 
 
 class UsersSerializer(serializers.ModelSerializer):
-    role_name = serializers.StringRelatedField()
 
     class Meta:
         model = User
