@@ -10,9 +10,9 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 
 
 from .models import User
-from .serializers import RegisterSerializer, EmailVerificationSerializer, LoginSerializer, RolesSerializer, \
-    ResetPasswordWithEmailSerializer, SetNewPasswordSerializer, SocialLoginSerializer, SocialSignupSerializer, \
-    MeAPIViewSerializer, PasswordTokenCheckSerializer, UsersSerializer
+from .serializers import RegisterSerializer, EmailVerificationSerializer, LoginSerializer, \
+    ResetPasswordWithEmailSerializer, SetNewPasswordSerializer, PasswordTokenCheckSerializer, MeAPIViewSerializer, \
+    UsersSerializer
 from .utils import Util
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse

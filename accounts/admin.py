@@ -17,4 +17,3 @@ class RefreshTokensAdmin(admin.ModelAdmin):
 
 # admin.site.unregister(Group)
 admin.site.register(user)
-admin.site.register(models.Role)

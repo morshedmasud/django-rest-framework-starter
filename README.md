@@ -36,7 +36,12 @@ pip3 install -r requirements.txt
 python3 manage.py makemigrations
 ```
 
-5. Database Seeder
+6. Database Migrate
+```shell script
+python3 manage.py migrate
+```
+
+7. Database Migrate and Seeder
 ```shell script
 bash migrate_and_seed.sh
 ```
