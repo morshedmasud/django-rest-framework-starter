@@ -9,10 +9,11 @@
 
 ## Features
 * User SignIn/SignUp
-* Login with Social Accounts (Facebook/Google)
+* Login with Social Accounts (Facebook/Google) - Coming Soon
 * OAuth 2.0
 * Swagger Documentation
-* Testing
+* Testing - Coming Soon
+* Docker Config - Coming Soon
 
 ## Setup in your local machine
 1. Clone project
