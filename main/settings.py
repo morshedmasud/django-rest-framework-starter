@@ -21,12 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%8lx6^a%z&a%20-oz&@o@(wtin3kw32$ggtpuhd**)8kcph9eq'
+SECRET_KEY = os.environ.get('SECRET_KEY', '%8lx6^a%z&a%2oz&@o@(wtin3kw32$ggtpuhd**)8kcph9eq')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(os.environ.get('DEBUG')) == "1"  # 1 == True
 
 ALLOWED_HOSTS = []
+if not DEBUG:
+    ALLOWED_HOSTS += [os.environ.get('ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -95,12 +97,11 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "boilerplateDB",
-        'USER': 'root',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '3306'
-
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT')
     }
 }
 
@@ -161,11 +162,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # email confirmation
-EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = '04c6033a2d629f'
-EMAIL_HOST_PASSWORD = '0efb9ab1f1b2cc'
-EMAIL_PORT = '2525'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = True  # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
