@@ -9,52 +9,52 @@
 
 ## Features
 * User SignIn/SignUp
-* Login with Social Accounts (Facebook/Google) - Coming Soon
-* OAuth 2.0
+* Forget Password
+* Email Verification
+* Login with Social Accounts (Facebook/Google) - [**Coming Soon**]
+* OAuth 2.0 (Authentication with Access & Refresh Token)
 * Swagger Documentation
-* Testing - Coming Soon
-* Docker Config - Coming Soon
+* Testing - [**Coming Soon**]
+* Docker Config - [**Coming Soon**]
 
 ## Setup in your local machine
 1. Clone project
 ```
 git clone https://github.com/morshedmasud/django-rest-framework-mysql-boilerplate
 ```
-2. Create virtualenv
+2. Go to project root path and create virtualenv
 ```
 virtualenv -p python3 venv
 ```
 3. Active virtualenv
 ```
-. venv/bin/activate
+source venv/bin/activate
 ```
-4. Go to project root path and install all dependency
+4. Install all dependency
 ```shell script
 pip3 install -r requirements.txt
 ```
-5. Database migrations
+5. Don't forget to create **.env** file as like **.env.example** and put necessary values like **DB Info, Email Info**
+6. Database migrations
 ```shell script
 python3 manage.py makemigrations
 ```
-
-6. Database Migrate
+7. Database Migrate
 ```shell script
 python3 manage.py migrate
 ```
-
-7. Database Migrate and Seeder
+8. Database Migrate and Seeder
 ```shell script
 bash migrate_and_seed.sh
 ```
-
-6. Finally run the project by 
+9. Finally, run the project by 
 ```shell script
 python3 manage.py runserver
 ```
-7. Generated staticfiles 
+10. Generated staticfiles 
 ```shell script
 python3 manage.py collectstatic
 ``` 
 
 #### Open the following url for view swagger documentation
-## [swagger-docs](http://localhost:8000/swagger/)
+## (http://localhost:8000/swagger/)
