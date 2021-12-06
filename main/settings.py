@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_seed',
 
     'accounts',
+    'social_auth'
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

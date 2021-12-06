@@ -55,6 +55,8 @@ class UserManager(BaseUserManager):
         return user
 
 
+AUTH_PROVIDERS = {'facebook': 'facebook', 'google': 'google', 'twitter': 'twitter', 'email': 'email'}
+
 class User(AbstractBaseUser):
 
     ACTIVE = 'active'
@@ -79,8 +81,8 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
-    social_id = models.TextField(null=True, blank=True)
-    provider = models.TextField(null=True, blank=True)
+    auth_id = models.TextField(null=True, blank=True)
+    auth_provider = models.CharField(max_length=255, blank=False, null=False, default=AUTH_PROVIDERS.get('email'))
 
     status = models.CharField(max_length=32, choices=STATUS, default=ACTIVE)
 
