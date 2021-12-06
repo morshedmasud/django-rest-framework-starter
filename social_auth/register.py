@@ -1,6 +1,6 @@
 
 from django.contrib.auth import authenticate
-from authentication.models import User
+from accounts.models import User
 import os
 import random
 from rest_framework.exceptions import AuthenticationFailed
@@ -27,7 +27,7 @@ def register_social_user(provider, user_id, email, name):
                 email=email, password=os.environ.get('SOCIAL_SECRET'))
 
             return {
-                'username': registered_user.username,
+                'full_name': registered_user.full_name,
                 'email': registered_user.email,
                 'tokens': registered_user.tokens()}
 
@@ -37,7 +37,8 @@ def register_social_user(provider, user_id, email, name):
 
     else:
         user = {
-            'username': generate_username(name), 'email': email,
+            'full_name': name,
+            'email': email,
             'password': os.environ.get('SOCIAL_SECRET')}
         user = User.objects.create_user(**user)
         user.is_verified = True
@@ -48,6 +49,6 @@ def register_social_user(provider, user_id, email, name):
             email=email, password=os.environ.get('SOCIAL_SECRET'))
         return {
             'email': new_user.email,
-            'username': new_user.username,
+            'file_name': new_user.file_name,
             'tokens': new_user.tokens()
         }
