@@ -11,11 +11,12 @@ class Google:
         validate method Queries the Google oAUTH2 api to fetch the user info
         """
         try:
-            idinfo = id_token.verify_oauth2_token(
+            id_info = id_token.verify_oauth2_token(
                 auth_token, requests.Request())
 
-            if 'accounts.google.com' in idinfo['iss']:
-                return idinfo
+            if 'accounts.google.com' in id_info['iss']:
+                return id_info
 
-        except:
+        except Exception as err:
+            print(err)
             return "The token is either invalid or has expired"

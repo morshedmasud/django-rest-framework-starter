@@ -20,7 +20,6 @@ def register_social_user(provider, user_id, email, name):
     filtered_user_by_email = User.objects.filter(email=email)
 
     if filtered_user_by_email.exists():
-
         if provider == filtered_user_by_email[0].auth_provider:
 
             registered_user = authenticate(
@@ -34,7 +33,6 @@ def register_social_user(provider, user_id, email, name):
         else:
             raise AuthenticationFailed(
                 detail='Please continue your login using ' + filtered_user_by_email[0].auth_provider)
-
     else:
         user = {
             'full_name': name,
@@ -49,6 +47,6 @@ def register_social_user(provider, user_id, email, name):
             email=email, password=os.environ.get('SOCIAL_SECRET'))
         return {
             'email': new_user.email,
-            'file_name': new_user.file_name,
+            'full_name': new_user.full_name,
             'tokens': new_user.tokens()
         }
