@@ -11,7 +11,7 @@
 * User SignIn/SignUp
 * Forget Password
 * Email Verification
-* Login with Social Accounts (Facebook/Google) - [**Coming Soon**]
+* Login with Social Accounts (Facebook/Google)
 * OAuth 2.0 (Authentication with Access & Refresh Token)
 * Swagger Documentation
 * Testing - [**Coming Soon**]
