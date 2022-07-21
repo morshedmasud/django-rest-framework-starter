@@ -14,7 +14,7 @@ cryptography==3.1
 defusedxml==0.7.0rc1
 distlib==0.3.0
 distro==1.4.0
-Django==3.0
+Django==3.1.14
 django-cors-headers==3.5.0
 django-dotenv==1.4.2
 django-seed==0.2.2
