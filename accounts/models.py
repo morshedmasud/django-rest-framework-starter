@@ -33,8 +33,8 @@ class UserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             full_name=full_name,
-            provider=provider,
-            social_id=social_id
+            auth_provider=provider,
+            auth_id=social_id
         )
         user.is_verified = True
 

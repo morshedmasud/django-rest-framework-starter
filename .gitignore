@@ -662,3 +662,7 @@ MigrationBackup/
 .idea/*
 # Visual code studio
 .vscode/*
+
+# Static file
+static/*
+user_images/*

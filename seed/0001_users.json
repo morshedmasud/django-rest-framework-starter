@@ -17,8 +17,8 @@
         "is_active": true,
         "is_admin": true,
         "is_staff": false,
-        "social_id": null,
-        "provider": null,
+        "auth_id": null,
+        "auth_provider": "email",
         "status": "active"
     }
 },
@@ -40,8 +40,8 @@
         "is_active": true,
         "is_admin": false,
         "is_staff": true,
-        "social_id": "Wall new night heavy message relate. Continue law of center enough standard.\nEnter method group think. Huge not realize. Such PM situation affect water project.",
-        "provider": "Perhaps drive probably. Majority old light sound item detail.\nAgo article but history option. Because information could herself.\nPerhaps time scene finish buy among.",
+        "auth_id": null,
+        "auth_provider": "email",
         "status": "active"
     }
 },
@@ -63,8 +63,8 @@
         "is_active": true,
         "is_admin": false,
         "is_staff": true,
-        "social_id": "Ago suffer ready middle learn east city as.\nHope single begin six source pretty against hour. Heavy cost field during stuff. Friend design try interview room chair establish.",
-        "provider": "Along concern foot hit PM where feeling. Affect statement school adult. Worry late that especially produce throw short.",
+        "auth_id": null,
+        "auth_provider": "email",
         "status": "active"
     }
 },
@@ -86,8 +86,8 @@
         "is_active": true,
         "is_admin": true,
         "is_staff": false,
-        "social_id": "Field public bed what something design. Congress which get stop movie that space same. Before size member sense me. Move person see too establish tough improve.",
-        "provider": "Pay middle market water resource tax. Garden entire decision should. Real tend play born rich.\nElection moment bit sort religious drop maybe. Beyond keep themselves well professional last old.",
+        "auth_id": null,
+        "auth_provider": "email",
         "status": "active"
     }
 },
@@ -109,8 +109,8 @@
         "is_active": true,
         "is_admin": true,
         "is_staff": true,
-        "social_id": "Professor reflect hand society. Course myself box.\nHimself deep beautiful control. Line seem decide shake scientist PM woman. Prove growth whatever hotel spring.",
-        "provider": "She second song base approach. Yet possible table deep why show.\nDeal doctor ball lose. Life middle mean listen cold.",
+        "auth_id": null,
+        "auth_provider": "email",
         "status": "active"
     }
 },
@@ -132,8 +132,8 @@
         "is_active": true,
         "is_admin": true,
         "is_staff": true,
-        "social_id": null,
-        "provider": null,
+        "auth_id": null,
+        "auth_provider": "email",
         "status": "active"
     }
 }
