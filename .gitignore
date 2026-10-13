@@ -665,4 +665,5 @@ MigrationBackup/
 
 # Static file
 static/*
+staticfiles/
 user_images/*

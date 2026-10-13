@@ -1,0 +1,64 @@
+# Local/full-stack setup: web + Postgres + Redis + Celery worker and beat.
+#   cp .env.example .env   # then set SECRET_KEY
+#   docker compose up --build
+x-app: &app
+  build: .
+  env_file: .env
+  environment:
+    DB_CHOICE: postgres
+    DATABASE_URL: postgres://postgres:postgres@db:5432/app
+    CELERY_BROKER_URL: redis://redis:6379/0
+  depends_on:
+    db:
+      condition: service_healthy
+    redis:
+      condition: service_started
+  restart: unless-stopped
+
+services:
+  web:
+    <<: *app
+    ports:
+      - "8000:8000"
+    volumes:
+      - media:/app/media
+
+  worker:
+    <<: *app
+    command: celery -A main worker --loglevel=info
+    environment:
+      DB_CHOICE: postgres
+      DATABASE_URL: postgres://postgres:postgres@db:5432/app
+      CELERY_BROKER_URL: redis://redis:6379/0
+      RUN_MIGRATIONS: "0"
+
+  beat:
+    <<: *app
+    command: celery -A main beat --loglevel=info --schedule /tmp/celerybeat-schedule
+    environment:
+      DB_CHOICE: postgres
+      DATABASE_URL: postgres://postgres:postgres@db:5432/app
+      CELERY_BROKER_URL: redis://redis:6379/0
+      RUN_MIGRATIONS: "0"
+
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d app"]
+      interval: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  media:

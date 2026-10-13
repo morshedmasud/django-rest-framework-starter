@@ -1,15 +1,15 @@
-from rest_framework import status
+from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.generics import GenericAPIView
 
-from services.rederers import Renderer
 from .serializers import GoogleSocialAuthSerializer, FacebookSocialAuthSerializer
 
 
 class GoogleSocialAuthView(GenericAPIView):
 
     serializer_class = GoogleSocialAuthSerializer
-    renderer_classes = (Renderer,)
+    permission_classes = (permissions.AllowAny,)
+    throttle_scope = 'auth'
 
     def post(self, request):
         """
@@ -27,7 +27,8 @@ class GoogleSocialAuthView(GenericAPIView):
 class FacebookSocialAuthView(GenericAPIView):
 
     serializer_class = FacebookSocialAuthSerializer
-    renderer_classes = (Renderer,)
+    permission_classes = (permissions.AllowAny,)
+    throttle_scope = 'auth'
 
     def post(self, request):
         """

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site_name }} API</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #f5a623;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        .background-art {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/static/images/alien_bg.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: 1;
+            filter: grayscale(1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 2.5rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #f0f0f0;
+            border-radius: 99px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
+            color: #888;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+        }
+
+        .cta {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .cta:hover {
+            color: var(--accent-color);
+            border-color: var(--text-color);
+        }
+
+        .cheeky-note {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.875rem;
+            color: #aaa;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-art"></div>
+    <div class="container">
+        <div class="status-badge">
+            <span class="status-dot"></span> Signal Lost
+        </div>
+        <h1>Move along.</h1>
+        <p>There's absolutely nothing to see here. Just static, dust, and the occasional solar flare. Definitely no hidden data oases.</p>
+        <a href="/swagger/" class="cta">API docs</a>
+    </div>
+    <div class="cheeky-note">
+        "It's just a rock," they said. "Nothing valuable here," they said.
+    </div>
+</body>
+</html>

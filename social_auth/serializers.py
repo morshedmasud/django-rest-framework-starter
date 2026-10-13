@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from . import google, facebook
+
+from . import facebook, google
 from .register import register_social_user
-import os
-from rest_framework.exceptions import AuthenticationFailed
 
 
 class FacebookSocialAuthSerializer(serializers.Serializer):
@@ -11,21 +10,15 @@ class FacebookSocialAuthSerializer(serializers.Serializer):
 
     def validate_auth_token(self, auth_token):
         user_data = facebook.Facebook.validate(auth_token)
+        if not user_data or 'id' not in user_data:
+            raise serializers.ValidationError('The token is invalid or expired. Please login again.')
 
-        try:
-            user_id = user_data['id']
-            email = user_data['email']
-            name = user_data['name']
-            provider = 'facebook'
-            return register_social_user(
-                provider=provider,
-                user_id=user_id,
-                email=email,
-                name=name
-            )
-        except Exception as err:
-            print(err)
-            raise serializers.ValidationError('The token  is invalid or expired. Please login again.')
+        return register_social_user(
+            provider='facebook',
+            user_id=user_data['id'],
+            email=user_data.get('email'),
+            name=user_data.get('name'),
+        )
 
 
 class GoogleSocialAuthSerializer(serializers.Serializer):
@@ -33,19 +26,14 @@ class GoogleSocialAuthSerializer(serializers.Serializer):
 
     def validate_auth_token(self, auth_token):
         user_data = google.Google.validate(auth_token)
-        try:
-            user_data['sub']
-        except:
-            raise serializers.ValidationError(
-                'The token is invalid or expired. Please login again.'
-            )
+        if not user_data or 'sub' not in user_data:
+            raise serializers.ValidationError('The token is invalid or expired. Please login again.')
+        if not user_data.get('email_verified'):
+            raise serializers.ValidationError('Your Google email address is not verified.')
 
-        if user_data['aud'] != os.environ.get('GOOGLE_CLIENT_ID'):
-            raise AuthenticationFailed('oops, who are you?')
-
-        user_id = user_data['sub']
-        email = user_data['email']
-        name = user_data['name']
-        provider = 'google'
-
-        return register_social_user(provider=provider, user_id=user_id, email=email, name=name)
+        return register_social_user(
+            provider='google',
+            user_id=user_data['sub'],
+            email=user_data.get('email'),
+            name=user_data.get('name'),
+        )

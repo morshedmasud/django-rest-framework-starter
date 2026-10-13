@@ -1,52 +1,28 @@
-
-from django.contrib.auth import authenticate
-from accounts.models import User
-import os
-import random
 from rest_framework.exceptions import AuthenticationFailed
 
-
-def generate_username(name):
-
-    username = "".join(name.split(' ')).lower()
-    if not User.objects.filter(username=username).exists():
-        return username
-    else:
-        random_username = username + str(random.randint(0, 1000))
-        return generate_username(random_username)
+from accounts.models import CustomUser
 
 
 def register_social_user(provider, user_id, email, name):
-    filtered_user_by_email = User.objects.filter(email=email)
+    """Log in the user for this social account, creating it on first sign in."""
+    if not email:
+        raise AuthenticationFailed('Your account has no email address; email permission is required.')
 
-    if filtered_user_by_email.exists():
-        if provider == filtered_user_by_email[0].auth_provider:
+    user = CustomUser.all_objects.filter(email__iexact=email).first()
 
-            registered_user = authenticate(
-                email=email, password=os.environ.get('SOCIAL_SECRET'))
+    if user is None:
+        user = CustomUser.objects.create_user_social(
+            email=email, full_name=name, provider=provider, social_id=user_id)
+    elif user.auth_provider != provider:
+        raise AuthenticationFailed(detail='Please continue your login using ' + user.auth_provider)
+    elif not user.is_active:
+        raise AuthenticationFailed('Account disabled, contact admin.')
+    elif user.deleted:
+        user.restore()
 
-            return {
-                'full_name': registered_user.full_name,
-                'email': registered_user.email,
-                'tokens': registered_user.tokens()}
-
-        else:
-            raise AuthenticationFailed(
-                detail='Please continue your login using ' + filtered_user_by_email[0].auth_provider)
-    else:
-        user = {
-            'full_name': name,
-            'email': email,
-            'password': os.environ.get('SOCIAL_SECRET')}
-        user = User.objects.create_user(**user)
-        user.is_verified = True
-        user.auth_provider = provider
-        user.save()
-
-        new_user = authenticate(
-            email=email, password=os.environ.get('SOCIAL_SECRET'))
-        return {
-            'email': new_user.email,
-            'full_name': new_user.full_name,
-            'tokens': new_user.tokens()
-        }
+    return {
+        'id': user.id,
+        'full_name': user.full_name,
+        'email': user.email,
+        'tokens': user.tokens(),
+    }

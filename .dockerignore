@@ -1,0 +1,24 @@
+*.pyc
+**logs**
+**__pycache__**
+**.api**
+**.idea**
+**media**
+/villapienv
+/villagenv
+env/*
+venv/*
+develop.sqlite3
+dev.sqlite3
+*.sqlite3
+# */migrations/.py
+# !**/migrations/_init_.py
+__pycache__/
+*.py[cod]
+*.sqlite3
+.git/
+media/
+staticfiles/
+*.log
+venv/
+.venv/

@@ -1,71 +1,15 @@
 from rest_framework import permissions
 
 
-class IsUser(permissions.BasePermission):
+class IsOwner(permissions.BasePermission):
+    """Object-level: the object's `user` field must be the requesting user."""
 
     def has_object_permission(self, request, view, obj):
         return obj.user == request.user
 
 
-class IsAdmin(permissions.BasePermission):
+class IsSelfOrAdmin(permissions.BasePermission):
+    """Object-level for user objects: users can act on their own account, staff on any."""
 
-    def has_permission(self, request, view):
-        return request.user.role.id == 1
-
-
-class IsBoardMember(permissions.BasePermission):
-
-    def has_permission(self, request, view):
-        return request.user.role.id == 2
-
-
-class IsEditor(permissions.BasePermission):
-
-    def has_permission(self, request, view):
-        return request.user.role.id == 3
-
-
-class IsMember(permissions.BasePermission):
-
-    def has_permission(self, request, view):
-        return request.user.role.id == 4
-
-
-class IsExpensePermission(permissions.BasePermission):
-
-    def has_permission(self, request, view):
-        method = ['PATCH', 'POST', 'PUT', 'DELETE']
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        elif request.method in method:
-            return request.user.role.id < 4
-
-
-class IsDonationPermission(permissions.BasePermission):
-
-    def has_permission(self, request, view):
-        method = ['PATCH', 'POST', 'PUT', 'DELETE']
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        elif request.method in method:
-            return request.user.role.id < 4
-
-
-class IsCampaignPermission(permissions.BasePermission):
-
-    def has_permission(self, request, view):
-        method = ['PATCH', 'POST', 'PUT', 'DELETE']
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        elif request.method in method:
-            return request.user.role.id < 4
-
-
-class IsUsersPermission(permissions.BasePermission):
-
-    def has_permission(self, request, view):
-        method = ['PATCH', 'POST', 'PUT']
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        elif request.method in method:
-            return request.user.role.id <= 4
+    def has_object_permission(self, request, view, obj):
+        return request.user.is_staff or obj == request.user

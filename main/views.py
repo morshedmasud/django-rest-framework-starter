@@ -1,6 +1,6 @@
-from django.http import HttpResponse
+from django.conf import settings
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Welcome To Django Rest API v_0.0.1")
-
+    return render(request, 'index.html', {'site_name': settings.SITE_NAME})
